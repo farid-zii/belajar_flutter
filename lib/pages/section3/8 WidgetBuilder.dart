@@ -2,8 +2,8 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class WidgetBuilder extends StatelessWidget {
-  WidgetBuilder({super.key});
+class WidgetBuilders extends StatelessWidget {
+  WidgetBuilders({super.key});
 
   List<KotakWarna> allItems = List.generate(
       10,
@@ -25,20 +25,35 @@ class WidgetBuilder extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Extract Widget"),
-        backgroundColor: Colors.blue,
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
-        scrollDirection: Axis.vertical,
-        child: Column(
-            children: data
-                .map((e) => KotakWarna(text: e["text"], warna: e["color"]))
-                .toList()),
-        // child: Column(children: allItems),
-      ),
-    );
+        appBar: AppBar(
+          title: Text(
+            "Widget Builder",
+            style: TextStyle(color: Colors.white),
+          ),
+          backgroundColor: Colors.blue,
+          centerTitle: true,
+        ),
+        //GridView.Builder
+        body: GridView.builder(
+          itemCount: 50,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 3, mainAxisSpacing: 10, crossAxisSpacing: 10),
+          itemBuilder: (context, index) => Container(
+            color: Color.fromARGB(255, 60 + Random().nextInt(256),
+                60 + Random().nextInt(256), 60 + Random().nextInt(256)),
+          ),
+        ));
+
+    //ListView
+    // body: ListView.builder(
+    //   //itemCount menentukan banyak dari item yg ada pada ItemBuilder
+    //   //Jika itemCount tidak ada maka akan terjadi infinity looping
+    //   itemCount: 10,
+    //   itemBuilder: (context, index) => KotakWarna(
+    //       text: "Kotak ke ${index + 1}",
+    //       warna: Color.fromARGB(255, 150 + Random().nextInt(256),
+    //           150 + Random().nextInt(256), 150 + Random().nextInt(256))),
+    // ));
   }
 }
 
