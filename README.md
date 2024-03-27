@@ -1,6 +1,7 @@
 # belajar_flutter
 
-A new Flutter project.
+Sebuah Project berisikan tentang belajar flutter yang mudah dipahami dilengkapi dengan comment pada file
+## Section 2 Widget Dasar
 
 ## Getting Started
 
