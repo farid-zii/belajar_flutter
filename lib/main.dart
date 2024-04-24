@@ -35,10 +35,20 @@ import 'package:belajar_flutter/pages/section3/4%20stack.dart';
 import 'package:belajar_flutter/pages/section3/5.%20GridView.dart';
 import 'package:belajar_flutter/pages/section3/6%20extractWidget.dart';
 import 'package:belajar_flutter/pages/section3/8%20WidgetBuilder.dart';
+import 'package:belajar_flutter/pages/section4%20Latihan/instagram.dart';
 import 'package:belajar_flutter/pages/section4/1%20dialog.dart';
 import 'package:belajar_flutter/pages/section4/2%20Snackbar.dart';
 import 'package:belajar_flutter/pages/section4/3%20TextField.dart';
 import 'package:belajar_flutter/pages/section4/4%20TabBar.dart';
+import 'package:belajar_flutter/pages/section4/5%20dropdown.dart';
+import 'package:belajar_flutter/pages/section4/6%20bottomNav.dart';
+import 'package:belajar_flutter/pages/section4/7%20BottomSheet.dart';
+import 'package:belajar_flutter/pages/section4/8Drawer/1%20drawerHal1.dart';
+import 'package:belajar_flutter/pages/section4/9%20Navigation.dart';
+import 'package:belajar_flutter/pages/section5/1%20http_get.dart';
+import 'package:belajar_flutter/pages/section5/2%20http_post.dart';
+import 'package:belajar_flutter/pages/section5/4%20http_delete.dart';
+import 'package:belajar_flutter/pages/section5/5%20future_builder.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -53,6 +63,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         //untuk menghilangkan lambang debug pada aplikasi
         debugShowCheckedModeBanner: false,
-        home: Tabbar4());
+        home: FutureBuilder5());
   }
 }
