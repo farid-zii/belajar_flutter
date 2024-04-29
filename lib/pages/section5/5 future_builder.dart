@@ -15,15 +15,20 @@ class _FutureBuilder5State extends State<FutureBuilder5> {
 
   // late String hasilrespons;
 
-  List allUser = [];
+  List<Map<String, dynamic>> allUser = [];
 
   Future getAllUser() async {
     try {
       var resp = await myhttp.get(
         Uri.parse("https://reqres.in/api/users"),
       );
-      var data = (json.decode(resp.body) as Map<String, dynamic>)["data"];
-      print(resp.body);
+      List data = (json.decode(resp.body) as Map<String, dynamic>)["data"];
+
+      data.forEach((element) {
+        allUser.add(element);
+      });
+
+      print(allUser);
     } catch (e) {
       print("Error cok $e");
     }
@@ -74,11 +79,14 @@ class _FutureBuilder5State extends State<FutureBuilder5> {
               );
             }
             return ListView.builder(
-              itemCount: 5,
+              itemCount: allUser.length,
               itemBuilder: (context, index) => ListTile(
-                leading: CircleAvatar(),
-                title: Text("Nama"),
-                subtitle: Text("Email"),
+                leading: CircleAvatar(
+                  backgroundColor: Colors.grey[300],
+                  backgroundImage: NetworkImage(allUser[index]['avatar']),
+                ),
+                title: Text("${allUser[index]['first_name']}"),
+                subtitle: Text("${allUser[index]['email']}"),
               ),
             );
           }),
